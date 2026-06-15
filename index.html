@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objednávka stravy — OPEN Klatovy 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Výběr stravy</div>
+  <h1>OPEN Klatovy 2026</h1>
+    
+  <p>Objednávky přijímáme do středy 24. 6. 21:00</p>
+</header>
+
+<div class="container">
+
+  <!-- Osobní údaje -->
+  <div class="section-title">Osobní údaje</div>
+  <div class="card">
+    <div class="field-row">
+      <div class="field">
+        <label for="jmeno">Křestní jméno <span class="req">*</span></label>
+        <input type="text" id="jmeno" placeholder="Jana">
+        <div class="error-msg" id="err-jmeno">Vyplňte křestní jméno.</div>
+      </div>
+      <div class="field">
+        <label for="prijmeni">Příjmení <span class="req">*</span></label>
+        <input type="text" id="prijmeni" placeholder="Nováková">
+        <div class="error-msg" id="err-prijmeni">Vyplňte příjmení.</div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="email">E-mail <span class="req">*</span></label>
+      <input type="email" id="email" placeholder="jana@example.cz">
+      <div class="error-msg" id="err-email">Zadejte platnou e-mailovou adresu.</div>
+    </div>
+    <div class="field">
+      <label for="rok">Rok narození <span class="req">*</span></label>
+      <input type="number" id="rok" placeholder="2000" min="1920" max="2026">
+      <div class="error-msg" id="err-rok">Zadejte platný rok narození.</div>
+    </div>
+  </div>
+
+  <!-- Porce -->
+  <div class="section-title">Velikost porce</div>
+  <div class="card">
+    <div class="field">
+      <label>Typ porce <span class="req">*</span></label>
+      <div class="porce-group">
+        <div class="porce-option">
+          <input type="radio" name="porce" id="porce-dospela" value="dospela" onchange="aktualizujCenu(); aktualizujCenyPolevek()">
+          <label for="porce-dospela">
+            <span class="porce-icon">🧑</span>
+            Dospělá
+            <span class="porce-sub">od 13 let</span>
+            <span class="porce-price">170 Kč / jídlo</span>
+          </label>
+        </div>
+        <div class="porce-option">
+          <input type="radio" name="porce" id="porce-detska" value="detska" disabled onchange="aktualizujCenu(); aktualizujCenyPolevek()">
+          <label for="porce-detska">
+            <span class="porce-icon">🧒</span>
+            Dětská
+            <span class="porce-sub">do 12 let</span>
+            <span class="porce-price">135 Kč / jídlo</span>
+          </label>
+        </div>
+      </div>
+      <div class="porce-notice" id="porce-notice"></div>
+      <div class="error-msg" id="err-porce">Zvolte velikost porce.</div>
+    </div>
+  </div>
+
+  <!-- Jídla -->
+  <div class="section-title">
+    Objednávka jídel
+    <span style="font-weight:400; text-transform:none; letter-spacing:0; font-size:11px">— volitelné pro každý den</span>
+  </div>
+  <div id="dny-container"></div>
+
+  <!-- Odeslat -->
+  <div class="submit-area">
+    <button class="submit-btn" id="submit-btn" type="button" onclick="odeslat()">
+      Odeslat objednávku
+    </button>
+    <div class="message-box success" id="msg-success">
+      ✅ Objednávka byla úspěšně odeslána. Děkujeme!<br>
+      <span style="font-weight:400; font-size:13px">Rekapitulace s cenou přijde na zadaný e-mail.</span>
+    </div>
+    <div class="message-box error-box" id="msg-error">
+      ❌ Při odesílání nastala chyba. Zkuste to prosím znovu.
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- Průběžná cena -->
+<div class="cena-bar" id="cena-bar" style="display:none">
+  <span class="cena-bar-label">Předběžná cena</span>
+  <span class="cena-bar-value" id="cena-bar-value">0 Kč</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
