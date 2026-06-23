@@ -1,6 +1,6 @@
 // ── Konfigurace ────────────────────────────────────────────────────────────
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyYuu8_OFyKVxhXwNdDdrRgh-wieWMFPWMqyKfTHBkMl1Qjh5xHvs6hdbTHrb7oXQSK/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwj8YR2R9qwU9zk-TBp3DgDnVjfO22jp_TleSq-PN8tp6oudMLfzXYaCme6xR18yLs/exec";
 
 const CENA_DOSPELA        = 170;
 const CENA_DETSKA         = 135;
